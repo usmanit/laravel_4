@@ -11,8 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::resouce('mahasiswa', function () {
+//     return view('welcome');
+// });
+
+Route::prefix('admin')->group(function () {
+	Route::view('home', 'admin.home.index');
+	Route::resource('mahasiswa', 'MahasiswaControl');
+	
+
 });
 
 Route::prefix('mahasiswa')->group(function () {
